@@ -3,10 +3,13 @@ package com.example.restfulwebservice.user;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -46,6 +49,30 @@ public class UserDaoService {
 	public User findOne(int id) {
 		for (User user : users) {
 			if(user.getId() == id) {
+				return user;
+			}
+		}
+		return null;
+	}
+	
+	public User deletebyId(int id) {
+		Iterator<User> iterator =  users.iterator();
+		while(iterator.hasNext()) {
+			User user = iterator.next();
+			if(user.getId() == id) {
+				iterator.remove();
+				return user;
+			}
+		}
+		return null;
+	}
+	
+	public User updateById(int id, String name) {
+		for (int i = 0; i < users.size(); i++) {
+			User user = users.get(i);
+			if(user.getId() == id) {
+				user.setName(name);
+				user.setJoinDate(new Date());
 				return user;
 			}
 		}
