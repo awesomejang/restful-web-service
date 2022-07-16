@@ -9,11 +9,13 @@ import com.fasterxml.jackson.annotation.JsonFilter;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 //@JsonIgnoreProperties(value = {"password", "ssn"})
-@JsonFilter("UserInfo") // Filter 적용시에 사용할 객체명 
+@JsonFilter("UserInfo") // Filter 적용시에 사용할 객체명
+@NoArgsConstructor
 public class User {
 	
 	private Integer id;
