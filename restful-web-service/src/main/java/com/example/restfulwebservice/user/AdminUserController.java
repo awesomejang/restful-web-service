@@ -24,6 +24,8 @@ import com.fasterxml.jackson.databind.ser.FilterProvider;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 
+import io.swagger.annotations.ApiResponse;
+
 @RestController
 @RequestMapping("/admin")
 public class AdminUserController {
@@ -34,6 +36,7 @@ public class AdminUserController {
 	}
 
 	@GetMapping("/users")
+	//@ApiResponse()
 	public MappingJacksonValue retrieveAllUsers() {
 		List<User> users = service.findAll();
 		
@@ -50,7 +53,8 @@ public class AdminUserController {
 	// GET /admin/users/1 -> /admin/v1/users/1
 	//@GetMapping("/v1/users/{id}")
 	//@GetMapping(value = "/v1/users/{id}", params = "version=1")
-	@GetMapping(value = "/users/{id}", headers = "X-API-VERSION=1")
+	//@GetMapping(value = "/users/{id}", headers = "X-API-VERSION=1")
+	@GetMapping(value = "/users/{id}", produces = "application/vnd.company.appv1+json")
 	public MappingJacksonValue retrieveUserV1(@PathVariable int id) {
 		User user = service.findOne(id);
 		 
@@ -70,7 +74,8 @@ public class AdminUserController {
 	 
 	//@GetMapping("/v2/users/{id}")
 	//@GetMapping(value = "/users/{id}", params = "version=2")
-	@GetMapping(value = "/users/{id}", headers = "X-API-VERSION=2")
+	//@GetMapping(value = "/users/{id}", headers = "X-API-VERSION=2")
+	@GetMapping(value = "/users/{id}", produces = "application/vnd.company.appv2+json")
 	public MappingJacksonValue retrieveUserV2(@PathVariable int id) {
 		User user = service.findOne(id);
 		 

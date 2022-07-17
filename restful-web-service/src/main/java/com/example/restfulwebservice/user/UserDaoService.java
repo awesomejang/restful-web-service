@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Service
 @Slf4j
+@Service
 public class UserDaoService {
 	private static List<User> users = new ArrayList<User>();
 	
