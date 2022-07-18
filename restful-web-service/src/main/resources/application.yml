@@ -17,3 +17,11 @@ spring:
     user:
       name: username
       password: passW0rd
+  datasource:
+    url: jdbc:h2:mem:testdb
+  jpa:
+    show-sql: true
+    defer-datasource-initialization: true
+  h2:
+    console:
+      enabled: true
