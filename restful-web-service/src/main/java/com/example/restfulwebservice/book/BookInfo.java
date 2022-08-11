@@ -20,6 +20,7 @@ public class BookInfo {
 	@GeneratedValue
 	private Long id;
 	
+	
 	private String name; // 책이름
 	private String publisher; // 출판사
 	private String author;  // 저자
