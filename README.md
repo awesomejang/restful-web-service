@@ -14,7 +14,7 @@
 + Swagger UI
 
 ## 개발 목적
-Spring Boot를 이용한 Restful Web Services을 개발하며 
+Spring Boot를 이용한 Restful Web Services을 개발방식을 학습하고
 
 REST API 설계에 필요한 지식을 기록하고 확장하기 위한 저장소입니다. 
 
